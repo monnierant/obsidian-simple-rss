@@ -1,6 +1,6 @@
 import { Notice, Vault } from "obsidian";
 import SimpleRSSFeed from "src/models/SimpleRSSFeed";
-import Parser from "rss-parser";
+import * as Parser from "rss-parser";
 
 export default class Feeds {
 	feeds: SimpleRSSFeed[] = [];
@@ -39,7 +39,7 @@ export default class Feeds {
 
 		console.log(content);
 
-		content.items.forEach((item) => {
+		content.items.forEach((item: any) => {
 			const path = feed.path ?? this.defaultPath;
 			const title = feed.title
 				? this.parseItem(feed.title, item)
