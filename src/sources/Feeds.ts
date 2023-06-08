@@ -49,20 +49,41 @@ export default class Feeds {
 				item
 			);
 			// Create a new file in the vault
-			vault.create(path + "/" + title + ".md", content);
+			vault
+				.create(path + "/" + title + ".md", content)
+				.then((file) => {
+					console.log("Note created :" + path + "/" + title);
+					new Notice("Note created :" + path + "/" + title);
+				})
+				.catch((error) => {
+					if (!error.message.includes("File already exists")) {
+						console.error(error);
+						new Notice("Error creating note :" + error);
+					}
+				});
 		});
 	}
 
 	getUrlContent(url: string) {
-		const parser = new Parser();
+		const parser: Parser = new Parser();
 		return parser.parseURL(url);
 	}
 
 	parseItem(template: string, item: any): string {
+		let categories = "";
+		if (item.categories) {
+			item.categories.forEach((category: string) => {
+				categories += "- " + category + "\n";
+			});
+		}
 		return template
-			.replace("{{title}}", item.title)
-			.replace("{{description}}", item.description)
-			.replace("{{author}}", item.author)
-			.replace("{{link}}", item.link);
+			.replace("{{title}}", item.title ?? "")
+			.replace("{{description}}", item.description ?? "")
+			.replace("{{author}}", item.author ?? "")
+			.replace("{{link}}", item.link ?? "")
+			.replace("{{guid}}", item.guid ?? "")
+			.replace("{{comments}}", item.comments ?? "")
+			.replace("{{categories}}", categories)
+			.replace("{{pubDate}}", item.pubDate ?? "");
 	}
 }
