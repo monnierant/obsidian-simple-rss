@@ -8,6 +8,6 @@ export interface SimpleRSSPluginSettings {
 
 export const DEFAULT_SETTINGS: SimpleRSSPluginSettings = {
 	defaultPath: "",
-	defaultTemplate: "{{link}}",
+	defaultTemplate: "Source: {{item.link}}\n\n{{item.description}}",
 	feeds: [],
 };

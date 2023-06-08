@@ -37,11 +37,11 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 
 			.setName("Default Template")
 			.setDesc(
-				"This is the default template for all feed.\n Here is a list of all avaliable variables:\n {{title}}\n {{link}}\n {{description}}\n {{author}}\n {{guid}}\n {{comments}}\n {{categories}}\n {{pubDate}}"
+				"This is the default template for all feed.\n Here is a list of all avaliable variables:\n {{feed.feedUrl}}\n {{feed.title}}\n {{feed.description}}\n {{feed.link}}\n {{item.title}}\n {{item.link}}\n {{item.description}}\n {{item.author}}\n {{item.guid}}\n {{item.comments}}\n {{item.categories}}\n {{item.pubDate}}"
 			)
 			.addTextArea((text) =>
 				text
-					.setPlaceholder("{{title}}")
+					.setPlaceholder("{{item.title}}")
 					.setValue(this.plugin.settings.defaultTemplate)
 					.onChange(async (value) => {
 						this.plugin.settings.defaultTemplate = value;
@@ -61,7 +61,7 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 					this.plugin.settings.feeds.push({
 						name: "",
 						url: "",
-						title: "{{title}}",
+						title: "{{item.title}}",
 						path: undefined,
 					});
 					await this.plugin.saveSettings();

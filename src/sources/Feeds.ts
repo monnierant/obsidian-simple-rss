@@ -42,15 +42,16 @@ export default class Feeds {
 		content.items.forEach((item: any) => {
 			const path = feed.path ?? this.defaultPath;
 			const title = feed.title
-				? this.parseItem(feed.title, item)
+				? this.parseItem(feed.title, item, content)
 				: item.title;
-			const content = this.parseItem(
+			const text = this.parseItem(
 				feed.template ?? this.defaultTemplate,
-				item
+				item,
+				content
 			);
 			// Create a new file in the vault
 			vault
-				.create(path + "/" + title + ".md", content)
+				.create(path + "/" + title + ".md", text)
 				.then((file) => {
 					console.log("Note created :" + path + "/" + title);
 					new Notice("Note created :" + path + "/" + title);
@@ -69,7 +70,7 @@ export default class Feeds {
 		return parser.parseURL(url);
 	}
 
-	parseItem(template: string, item: any): string {
+	parseItem(template: string, item: any, feed: any): string {
 		let categories = "";
 		if (item.categories) {
 			item.categories.forEach((category: string) => {
@@ -77,13 +78,17 @@ export default class Feeds {
 			});
 		}
 		return template
-			.replace("{{title}}", item.title ?? "")
-			.replace("{{description}}", item.description ?? "")
-			.replace("{{author}}", item.author ?? "")
-			.replace("{{link}}", item.link ?? "")
-			.replace("{{guid}}", item.guid ?? "")
-			.replace("{{comments}}", item.comments ?? "")
-			.replace("{{categories}}", categories)
-			.replace("{{pubDate}}", item.pubDate ?? "");
+			.replace("{{feed.feedUrl}}", feed.feedUrl ?? "")
+			.replace("{{feed.title}}", feed.title ?? "")
+			.replace("{{feed.description}}", feed.description ?? "")
+			.replace("{{feed.link}}", feed.link ?? "")
+			.replace("{{item.title}}", item.title ?? "")
+			.replace("{{item.description}}", item.description ?? "")
+			.replace("{{item.author}}", item.author ?? "")
+			.replace("{{item.link}}", item.link ?? "")
+			.replace("{{item.guid}}", item.guid ?? "")
+			.replace("{{item.comments}}", item.comments ?? "")
+			.replace("{{item.categories}}", categories)
+			.replace("{{item.pubDate}}", item.pubDate ?? "");
 	}
 }
