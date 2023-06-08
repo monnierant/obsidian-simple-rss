@@ -33,7 +33,7 @@ export default class Feeds {
 	}
 
 	async syncOneFeed(feed: SimpleRSSFeed, vault: Vault) {
-		new Notice("Sync Feed: " + feed.title);
+		new Notice("Sync Feed: " + feed.name);
 
 		const content = await this.getUrlContent(feed.url);
 
