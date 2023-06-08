@@ -1,6 +1,6 @@
 import { Notice, Vault } from "obsidian";
 import SimpleRSSFeed from "src/models/SimpleRSSFeed";
-import * as Parser from "rss-parser";
+import Parser from "rss-parser";
 
 export default class Feeds {
 	feeds: SimpleRSSFeed[] = [];
