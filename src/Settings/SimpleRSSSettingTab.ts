@@ -16,6 +16,39 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
+		containerEl.createEl("h1", { text: "Synchronisation" });
+
+		// Pull toogle
+		new Setting(containerEl)
+			.setName("Pull")
+			.setDesc("Pull the feeds on periodic basis. (Restart required)")
+			.addToggle((toggle) =>
+				toggle
+					.setValue(this.plugin.settings.autoPull)
+					.onChange(async (value) => {
+						this.plugin.settings.autoPull = value;
+						await this.plugin.saveSettings();
+					})
+			);
+
+		// Time Interval number field
+		new Setting(containerEl)
+			.setName("Time Interval")
+			.setDesc(
+				"Time interval between each pull in minutes. (Restart required)"
+			)
+			.addText((text) =>
+				text
+					.setPlaceholder("Time Interval")
+					.setValue(this.plugin.settings.timeInterval.toString())
+					.onChange(async (value) => {
+						this.plugin.settings.timeInterval = parseInt(value);
+						await this.plugin.saveSettings();
+					})
+			);
+		
+		
+
 		containerEl.createEl("h1", { text: "Defaults" });
 
 		// Default Path text field

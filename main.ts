@@ -15,6 +15,16 @@ export default class SimpleRSSPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+		// This creates an interval that will sync the feeds every timeInterval minutes.
+		if (this.settings.autoPull) {
+			this.registerInterval(
+				window.setInterval(
+					() => this.feeds.syncFeeds(this.app.vault),
+					1000 * 60 * this.settings.timeInterval
+				)
+			);
+		}
+
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon(
 			"refresh-cw",
