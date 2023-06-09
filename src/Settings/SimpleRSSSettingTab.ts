@@ -33,7 +33,7 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 
 		// Time Interval number field
 		new Setting(containerEl)
-			.setName("Time Interval")
+			.setName("Time interval")
 			.setDesc(
 				"Time interval between each pull in minutes. (Restart required)"
 			)
@@ -46,14 +46,12 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					})
 			);
-		
-		
 
 		containerEl.createEl("h1", { text: "Defaults" });
 
 		// Default Path text field
 		new Setting(containerEl)
-			.setName("Default Path")
+			.setName("Default path")
 			.setDesc("This is the default path for all feed.")
 			.addSearch((search) =>
 				search
@@ -68,7 +66,7 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 		// Default Template text field
 		new Setting(containerEl)
 
-			.setName("Default Template")
+			.setName("Default template")
 			.setDesc(
 				"This is the default template for all feed.\n Here is a list of all avaliable variables:\n {{feed.feedUrl}}\n {{feed.title}}\n {{feed.description}}\n {{feed.link}}\n {{item.title}}\n {{item.link}}\n {{item.description}}\n {{item.author}}\n {{item.guid}}\n {{item.comments}}\n {{item.categories}}\n {{item.pubDate}}"
 			)

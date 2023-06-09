@@ -1,11 +1,10 @@
 {
 	"id": "simple-rss",
 	"name": "Simple RSS",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"minAppVersion": "0.15.0",
-	"description": "This plugin collect RSS articles into notes.",
+	"description": "Collect RSS articles into notes.",
 	"author": "Monnierant",
 	"authorUrl": "https://github.com/monnierant",
-	"fundingUrl": "https://github.com/monnierant",
 	"isDesktopOnly": false
 }
