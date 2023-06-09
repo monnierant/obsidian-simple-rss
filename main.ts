@@ -6,8 +6,6 @@ import {
 } from "./src/Settings/SimpleRSSPluginSettings";
 import Feeds from "src/sources/Feeds";
 
-// Remember to rename these classes and interfaces!
-
 export default class SimpleRSSPlugin extends Plugin {
 	settings: SimpleRSSPluginSettings;
 	feeds: Feeds;
@@ -34,7 +32,6 @@ export default class SimpleRSSPlugin extends Plugin {
 				this.feeds.syncFeeds(this.app.vault);
 			}
 		);
-		// Perform additional things with the ribbon
 		ribbonIconEl.addClass("simple-rss-ribbon-class");
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
