@@ -1,7 +1,7 @@
 {
 	"id": "simple-rss",
 	"name": "Simple RSS",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"minAppVersion": "0.15.0",
 	"description": "Collect RSS articles into notes.",
 	"author": "Monnierant",

@@ -78,17 +78,17 @@ export default class Feeds {
 			});
 		}
 		return template
-			.replace("{{feed.feedUrl}}", feed.feedUrl ?? "")
-			.replace("{{feed.title}}", feed.title ?? "")
-			.replace("{{feed.description}}", feed.description ?? "")
-			.replace("{{feed.link}}", feed.link ?? "")
-			.replace("{{item.title}}", item.title ?? "")
-			.replace("{{item.description}}", item.description ?? "")
-			.replace("{{item.author}}", item.author ?? "")
-			.replace("{{item.link}}", item.link ?? "")
-			.replace("{{item.guid}}", item.guid ?? "")
-			.replace("{{item.comments}}", item.comments ?? "")
-			.replace("{{item.categories}}", categories)
-			.replace("{{item.pubDate}}", item.pubDate ?? "");
+			.replaceAll("{{feed.feedUrl}}", feed.feedUrl ?? "")
+			.replaceAll("{{feed.title}}", feed.title ?? "")
+			.replaceAll("{{feed.description}}", feed.description ?? "")
+			.replaceAll("{{feed.link}}", feed.link ?? "")
+			.replaceAll("{{item.title}}", item.title ?? "")
+			.replaceAll("{{item.description}}", item.description ?? "")
+			.replaceAll("{{item.author}}", item.author ?? "")
+			.replaceAll("{{item.link}}", item.link ?? "")
+			.replaceAll("{{item.guid}}", item.guid ?? "")
+			.replaceAll("{{item.comments}}", item.comments ?? "")
+			.replaceAll("{{item.categories}}", categories)
+			.replaceAll("{{item.pubDate}}", item.pubDate ?? "");
 	}
 }
