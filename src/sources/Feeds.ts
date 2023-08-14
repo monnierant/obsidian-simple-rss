@@ -49,9 +49,14 @@ export default class Feeds {
 				item,
 				content
 			);
+
+			// sanitize title
+			const sanitizedTitle = title
+				.replace(/[*"\\<>/:|?]/gi, "");
+
 			// Create a new file in the vault
 			vault
-				.create(path + "/" + title + ".md", text)
+				.create(path + "/" + sanitizedTitle + ".md", text)
 				.then((file) => {
 					console.log("Note created :" + path + "/" + title);
 					new Notice("Note created :" + path + "/" + title);
