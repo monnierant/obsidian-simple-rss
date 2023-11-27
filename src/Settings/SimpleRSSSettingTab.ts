@@ -68,7 +68,7 @@ export default class SimpleRSSSettingTab extends PluginSettingTab {
 
 			.setName("Default template")
 			.setDesc(
-				"This is the default template for all feed.\n Here is a list of all avaliable variables:\n {{feed.feedUrl}}\n {{feed.title}}\n {{feed.description}}\n {{feed.link}}\n {{item.title}}\n {{item.link}}\n {{item.description}}\n {{item.author}}\n {{item.guid}}\n {{item.comments}}\n {{item.categories}}\n {{item.pubDate}}"
+				"This is the default template for all feed.\n Here is a list of all avaliable variables:\n {{feed.feedUrl}}\n {{feed.title}}\n {{feed.description}}\n {{feed.link}}\n {{item.title}}\n {{item.link}}\n {{item.description}}\n {{item.author}}\n {{item.guid}}\n {{item.comments}}\n {{item.categories}}\n {{item.pubDate}}\n {{item.content}}"
 			)
 			.addTextArea((text) =>
 				text
