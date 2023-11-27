@@ -94,6 +94,7 @@ export default class Feeds {
 			.replaceAll("{{item.guid}}", item.guid ?? "")
 			.replaceAll("{{item.comments}}", item.comments ?? "")
 			.replaceAll("{{item.categories}}", categories)
+			.replaceAll("{{item.content}}", item.content)
 			.replaceAll("{{item.pubDate}}", item.pubDate ?? "");
 	}
 }
