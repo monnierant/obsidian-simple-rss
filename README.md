@@ -1,6 +1,6 @@
 # Obsidian Simple RSS Plugin
 
-![Contributors](https://img.shields.io/github/contributors/monnierant/obsidian-simple-rsss?style=plastic)
+![Contributors](https://img.shields.io/github/contributors/monnierant/obsidian-simple-rss?style=plastic)
 ![Forks](https://img.shields.io/github/forks/monnierant/obsidian-simple-rss)
 ![Stars](https://img.shields.io/github/stars/monnierant/obsidian-simple-rss)
 ![Licence](https://img.shields.io/github/license/monnierant/obsidian-simple-rss)
