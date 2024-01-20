@@ -14,14 +14,22 @@ jobs:
                   node-version: "18.x"
             - name: Extract tag name
               run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-            - name: Create annotation for build error
-              run: |
-                  sed -i 's/"version": .*/"version": "${{ env.TAG_NAME }}",/' package.json
-                  sed -i 's/"version": .*/"version": "${{ env.TAG_NAME }}",/' manifest.json
+
             - name: Build plugin
               run: |
                   npm install
                   npm run build
+
+            - name: Push Version
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  tag="${GITHUB_REF#refs/tags/}"
+
+                  gh release create "$tag" \
+                  --title="$tag" \
+                  --draft \
+                  main.js manifest.json styles.css
 
             - name: Create release
               env:
