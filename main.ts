@@ -48,6 +48,7 @@ export default class SimpleRSSPlugin extends Plugin {
 		);
 		this.feeds = new Feeds()
 			.setFeeds(this.settings.feeds)
+			.setFeedTypes(this.settings.feedTypes)
 			.setDefaultPath(this.settings.defaultPath)
 			.setDefaultTemplate(this.settings.defaultTemplate);
 	}
