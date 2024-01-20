@@ -1,4 +1,3 @@
-import { UUID } from "crypto";
 import SimpleRSSPlugin from "main";
 import { App, SearchComponent, Setting } from "obsidian";
 import { FolderSuggest } from "src/Library/FolderSuggestor";
@@ -85,7 +84,7 @@ export default class SimpleRSSFeedPanel {
 					.setValue(feed.feedTypeId?.toString() ?? "")
 					.onChange(async (value) => {
 						this.plugin.settings.feeds[index].feedTypeId =
-							value as UUID;
+							value as string;
 						await this.plugin.saveSettings();
 					});
 			});

@@ -1,8 +1,6 @@
-import { UUID } from "crypto";
-
 export default interface SimpleRSSFeedType {
 	name: string;
-	id: UUID;
+	id: string;
 	feed: string[];
 	item: string[];
 }
