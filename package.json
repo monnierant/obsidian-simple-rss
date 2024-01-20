@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-sample-plugin",
-	"version": "0.0.0-dev",
+	"version": "0.3.4",
 	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
@@ -12,6 +12,9 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/exec": "^6.0.3",
+		"@semantic-release/git": "^10.0.1",
 		"@types/node": "^16.11.6",
 		"@types/uuid": "^9.0.7",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
