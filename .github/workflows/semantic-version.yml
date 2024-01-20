@@ -30,8 +30,6 @@ jobs:
               run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
             - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
               run: npm audit signatures
-            - name: Set permission
-              run: chmod +x ./set-version.sh
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
