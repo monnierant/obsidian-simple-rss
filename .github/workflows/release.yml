@@ -37,10 +37,10 @@ jobs:
                   git commit -m "Bump version to $tag [skip ci]"
                   git push
 
-                  gh release create "$tag" \
-                  --title="$tag" \
-                  --draft \
-                  main.js manifest.json styles.css
+                  gh pr create \
+                    --title "Bump version to $tag" \
+                    --body "Bump version to $tag" \
+                    --base dev --head $GITHUB_REPOSITORY:$GITHUB_REF
 
             - name: Create release
               env:
