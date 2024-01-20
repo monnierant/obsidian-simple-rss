@@ -36,7 +36,7 @@ jobs:
                   git add manifest.json
                   git add package.json
                   git commit -m "Bump version to $tag [skip ci]"
-                  git push
+                  git push origin master
 
                   gh pr create \
                     --title "Bump version to $tag" \
