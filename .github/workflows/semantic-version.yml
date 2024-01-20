@@ -25,7 +25,7 @@ jobs:
             - name: Install dependencies
               run: npm clean-install
             - name: Install semantic-release dependencies
-              run: npm install @semantic-release/git @semantic-release/changelog -D
+              run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
             - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
               run: npm audit signatures
             - name: Release
