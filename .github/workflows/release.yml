@@ -11,7 +11,7 @@ jobs:
             - name: Use Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: "18.x"
+                  node-version: "20.x"
             - name: Extract tag name
               run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
             - name: Create annotation for build error
