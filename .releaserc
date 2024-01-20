@@ -17,6 +17,10 @@
                 },
             ],
             [
+                "@semantic-release/exec",
+                { "prepareCmd": "npm install && npm run build" },
+            ],
+            [
                 "@semantic-release/github",
                 { "assets": ["main.js", "manifest.json", "styles.css"] },
             ],
