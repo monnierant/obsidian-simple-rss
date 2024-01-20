@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-sample-plugin",
-	"version": "1.0.0",
+	"version": "0.1.6",
 	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
@@ -24,6 +24,8 @@
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
 		"axios": "^1.4.0",
+		"fast-xml-parser": "^4.3.3",
+		"mustache": "^4.2.0",
 		"rss-parser": "^3.13.0"
 	}
 }
