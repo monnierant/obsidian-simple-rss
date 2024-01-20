@@ -18,6 +18,7 @@ jobs:
               run: |
                   sed -i 's/"version": .*/"version": "${{ env.TAG_NAME }}",/' manifest.json;
                   sed -i 's/"version": .*/"version": "${{ env.TAG_NAME }}",/' package.json;
+                  sed -i 's/"version": .*/"version": "${{ env.TAG_NAME }}",/' package-lock.json;
 
             - name: Build plugin
               run: |
@@ -32,6 +33,7 @@ jobs:
 
                   git add manifest.json
                   git add package.json
+                  git add package-lock.json
                   git commit -m "Bump version to $tag [skip ci]"
                   git push
 
