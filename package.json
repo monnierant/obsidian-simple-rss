@@ -24,6 +24,8 @@
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
 		"axios": "^1.4.0",
+		"fast-xml-parser": "^4.3.3",
+		"mustache": "^4.2.0",
 		"rss-parser": "^3.13.0"
 	}
 }

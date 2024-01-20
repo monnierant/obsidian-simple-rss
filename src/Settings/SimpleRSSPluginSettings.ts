@@ -1,4 +1,6 @@
+import { randomUUID } from "crypto";
 import SimpleRSSFeed from "src/models/SimpleRSSFeed";
+import SimpleRSSFeedType from "src/models/SimpleRSSFeedType";
 
 export interface SimpleRSSPluginSettings {
 	defaultPath: string;
@@ -6,6 +8,7 @@ export interface SimpleRSSPluginSettings {
 	autoPull: boolean;
 	timeInterval: number;
 	feeds: SimpleRSSFeed[];
+	feedTypes: SimpleRSSFeedType[];
 }
 
 export const DEFAULT_SETTINGS: SimpleRSSPluginSettings = {
@@ -14,4 +17,12 @@ export const DEFAULT_SETTINGS: SimpleRSSPluginSettings = {
 	autoPull: false,
 	timeInterval: 60,
 	feeds: [],
+	feedTypes: [
+		{
+			name: "Youtube",
+			feed: ["yt:channelId"],
+			item: ["yt:videoId", "yt:channelId", "media:group"],
+			id: randomUUID(),
+		},
+	],
 };
