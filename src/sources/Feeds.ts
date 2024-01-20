@@ -67,8 +67,10 @@ export default class Feeds {
 				content
 			);
 
+			// console.log("Item: ", item);
+
 			// sanitize title
-			const sanitizedTitle = title.replace(/[*"\\<>/:|?#^]/gi, "");
+			const sanitizedTitle = title.replace(/[*"\\<>/:|?#\r\n^]/gi, "");
 
 			// Create a new file in the vault
 			vault
