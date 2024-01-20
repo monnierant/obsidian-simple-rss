@@ -15,7 +15,9 @@ jobs:
             - name: Extract tag name
               run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
             - name: Create annotation for build error
-              run: 'sed -i ''s/"version": .*/"version": "${{ env.TAG_NAME }}",/'' package.json'
+              run: |
+                  sed -i ''s/"version": .*/"version": "${{ env.TAG_NAME }}",/'' package.json
+                  sed -i ''s/"version": .*/"version": "${{ env.TAG_NAME }}",/'' manifest.json
             - name: Build plugin
               run: |
                   npm install
