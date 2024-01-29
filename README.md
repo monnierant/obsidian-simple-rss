@@ -74,6 +74,12 @@ You can use all feature implemented in this module in your template
 
 ### Tips
 
+#### Description
+
+The item `Description` field is not populated by default due to [rss-parser](https://github.com/rbren/rss-parser) setup.
+
+If you want to collect the description you must create your own custom RSS type and add `description` to it in `Item Field`.
+
 #### HTML Characters
 
 To prevent bad HTML interpretation character use the `{{&type.field}}` notation. The `&` will decode the HTML character and put them in the correct format in your notes.
