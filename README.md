@@ -14,6 +14,8 @@ It allow template using [Mustache](https://mustache.github.io) to fill note titl
 
 Custom RSS feed can be also collected
 
+Tadam
+
 ## How do I use it ?
 
 ### Quick Start
@@ -75,6 +77,30 @@ You can use all feature implemented in this module in your template
 #### HTML Characters
 
 To prevent bad HTML interpretation character use the `{{&type.field}}` notation. The `&` will decode the HTML character and put them in the correct format in your notes.
+
+#### Access attribute
+
+In order to access an attribute of a field, you must add a `$`.
+
+```js
+{{&item.media:content.$.url}}
+```
+
+will match:
+
+```xml
+<item>
+    <link>https://mastodon.social/@DrPen/111832201685713509</link>
+    <pubDate>Sun, 28 Jan 2024 06:39:35 +0000</pubDate>
+    <media:content url="https://files.mastodon.social/media_attachments/files/111/832/170/886/342/281/original/6cae376ed484e250.png" type="image/png" fileSize="165089" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Screenshot of academic opinion piece on Patterns, discussing ethics/privacy differences of data collection between Twitter and Mastodon/Fediverse</media:description>
+    </media:content>
+    <category>mastodon</category>
+</item>
+```
+
+The `$` allow you to target attributes and not content of a field.
 
 ## Exemple
 
@@ -157,6 +183,8 @@ As you can see in this exemple we only need to setup the top level rss's field f
 
 That's why we only setup `media:group` to be able to get the `media:description` with the following [Mustache](https://mustache.github.io) snipet `{{&item.media:group.media:description}}`
 
+You can also access to an attribute like the video url with `{{&item.media:group.media:content.$.url}}`
+
 ## Avaliable variables that can be used in title and templates from the ~Generic~ format
 
 The plugin uses [Mustache](https://mustache.github.io) to format the feeds. You can use the following variables:
@@ -166,7 +194,6 @@ The plugin uses [Mustache](https://mustache.github.io) to format the feeds. You 
 -   `{{&feed.description}}` - Description of the feed
 -   `{{&feed.link}}` - Link to the feed
 -   `{{&item.title}}` - Title of the item
--   `{{&item.description}}` - Description of the item
 -   `{{&item.author}}` - Author of the item
 -   `{{&item.link}}` - Link to the item
 -   `{{&item.guid}}` - Item unique identifier
